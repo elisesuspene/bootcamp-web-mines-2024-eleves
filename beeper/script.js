@@ -29,6 +29,15 @@ const beepsDiv = document.querySelector("#beeps");
 const beepTemplate = document.querySelector("#beep-template");
 const form = document.querySelector("#add-beep-form");
 
+const beepList = document.createElement("m-beep-list");
+updateList();
+
+beepsDiv.prepend(beepList);
+
+function updateList() {
+  beepList.setAttribute("beeps", JSON.stringify(beepsData));
+}
+
 form.addEventListener("submit", (event) => {
   // Prevent form from being sent and page to reload
   event.preventDefault();
@@ -37,20 +46,15 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const message = formData.get("message");
 
-  const beepElement = document.createElement("m-beep");
-  beepElement.setAttribute("author", "Moi");
-  beepElement.setAttribute("date", new Date());
-  beepElement.setAttribute("message", message);
-  beepElement.setAttribute("likes", Math.round(Math.random() * 100));
+  beepsData.splice(0, 0, {
+    message: formData.get("message"),
+    author: "Moi",
+    date: new Date(),
+    likes: Math.round(Math.random() * 100),
+  });
 
-  // Add beep to list
-  beepsDiv.prepend(beepElement);
+  updateList();
 
   // Reset form
   event.target.reset();
 });
-
-const beepList = document.createElement("m-beep-list");
-beepList.setAttribute("beeps", beepsData);
-
-beepsDiv.prepend(beepList);

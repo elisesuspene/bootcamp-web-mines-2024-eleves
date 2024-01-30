@@ -2,21 +2,18 @@ import { html, css, LitElement } from "lit";
 
 class BeepList extends LitElement {
   static properties = {
-    beeps: { type: {} },
+    beeps: { type: Array },
   };
 
   constructor() {
     // Always call super first in constructor
     super();
 
-    this.beeps = [
-      {
-        message: "Hello world!",
-        author: "Lui",
-        date: new Date(),
-        likes: 10,
-      },
-    ];
+    this.beeps = [];
+  }
+
+  createRenderRoot() {
+    return this;
   }
 
   render() {
