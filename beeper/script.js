@@ -10,14 +10,14 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const message = formData.get("message");
 
-  const beepInstance = beepTemplate.content.cloneNode(true);
-
-  // Set message value in beep instance
-  const beepMessage = beepInstance.querySelector(".beep-message");
-  beepMessage.textContent = message;
+  const beepElement = document.createElement("m-beep");
+  beepElement.setAttribute("author", "Moi");
+  beepElement.setAttribute("date", new Date().toISOString());
+  beepElement.setAttribute("message", message);
+  beepElement.setAttribute("likes", Math.round(Math.random() * 100));
 
   // Add beep to list
-  beepsDiv.prepend(beepInstance);
+  beepsDiv.prepend(beepElement);
 
   // Reset form
   event.target.reset();
