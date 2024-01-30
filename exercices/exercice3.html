@@ -1,7 +1,58 @@
-Exercice 3
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercice 3</title>
 
-Consignes :
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-- Mettre en forme l'exercice 3
-- Recopier le formulaire d'inscription précédent ci-dessous
-- Grâce au fichier globals.css, mettre le texte des labels en bleu, agrandir la police dans les input texte, placer un bloc en position absolue à droite du champ adresse email avec un texte de votre choix en police 10px rouge.
+  <body>
+    <h1>Exercice 3</h1>
+
+    <h2>Consignes :</h2>
+
+    <ul>
+      <li>Mettre en forme l'exercice 3</li>
+      <li>Recopier le formulaire d'inscription précédent ci-dessous</li>
+      <li>
+        Grâce au fichier style.css, mettre le texte des labels en bleu, agrandir
+        la police dans les input texte, placer un bloc en position absolue à
+        droite du champ adresse email avec un texte de votre choix en police
+        10px rouge.
+      </li>
+    </ul>
+
+    <form>
+      <div>
+        <label for="firstname">Prénom</label>
+        <input type="text" id="firstname" name="firstname" />
+      </div>
+
+      <div>
+        <label for="lastname">Nom</label>
+        <input type="text" id="lastname" name="lastname" />
+      </div>
+
+      <div id="email-container">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+        <div class="hint">Ici un email</div>
+      </div>
+
+      <div>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" />
+      </div>
+
+      <div>
+        <label for="cgu">J'accepte le règlement</label>
+        <input type="checkbox" id="cgu" name="cgu" />
+      </div>
+
+      <div>
+        <button type="submit">Envoyer</button>
+      </div>
+    </form>
+  </body>
+</html>
